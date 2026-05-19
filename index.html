@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Studio Mokuton — Studio d'applications mobiles indépendant</title>
+    <meta name="description" content="Studio Mokuton est un studio mobile indépendant qui conçoit des applications iOS et Android pour durer. Éditeur de Caresse, l'application audio intime guidée par l'IA.">
+    <meta name="keywords" content="Studio Mokuton, indie app studio, mobile app studio, Caresse app, iOS, Android, AI apps">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Studio Mokuton">
+
+    <link rel="canonical" href="https://mokuto.studio/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://mokuto.studio/sitemap.xml">
+    <link rel="alternate" hreflang="fr" href="https://mokuto.studio/">
+    <link rel="alternate" hreflang="en" href="https://mokuto.studio/">
+    <link rel="alternate" hreflang="x-default" href="https://mokuto.studio/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mokuto.studio/">
+    <meta property="og:title" content="Studio Mokuton — Studio d'applications mobiles indépendant">
+    <meta property="og:description" content="Studio mobile indépendant qui conçoit des applications iOS et Android pour durer. Éditeur de Caresse, l'application audio intime guidée par l'IA.">
+    <meta property="og:site_name" content="Studio Mokuton">
+    <meta property="og:image" content="https://mokuto.studio/studio_mokuton.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1536">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Studio Mokuton — Studio d'applications mobiles indépendant">
+    <meta name="twitter:description" content="Studio mobile indépendant qui conçoit des applications iOS et Android pour durer. Éditeur de Caresse, l'application audio intime guidée par l'IA.">
+    <meta name="twitter:image" content="https://mokuto.studio/studio_mokuton.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Studio Mokuton",
+      "url": "https://mokuto.studio/",
+      "logo": "https://mokuto.studio/studio_mokuton.png",
+      "image": "https://mokuto.studio/studio_mokuton.png",
+      "description": "Independent mobile app studio. Developer and publisher of Caresse, an AI-guided intimate audio app.",
+      "foundingDate": "2025-01-01",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@mokuto.studio",
+        "contactType": "customer support"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "FR"
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MobileApplication",
+            "name": "Caresse",
+            "url": "https://caresse.app/",
+            "applicationCategory": "LifestyleApplication",
+            "operatingSystem": "iOS, Android"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preload" as="image" href="studio_mokuton.png">
+    <link rel="dns-prefetch" href="https://caresse.app">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream:      #F6EBDD;
+            --cream-dark: #EDE0CE;
+            --forest:     #43492d;
+            --forest-mid: #5a6138;
+            --forest-light: #8b7d54;
+            --bark:       #965730;
+            --sun:        #965730;
+            --text:       #43492d;
+            --text-mid:   #8b7d54;
+            --text-light: #a89870;
+            --white:      #FDFAF5;
+            --rule:       rgba(67,73,45,0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            overflow-x: clip;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+
+        /* ── HEADER ── */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(245,240,232,0.92);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 var(--rule);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .header-logo img {
+            height: 56px;
+            width: auto;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-mid);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--forest); }
+
+        .nav-cta {
+            background: var(--forest);
+            color: var(--cream) !important;
+            padding: 9px 22px;
+            border-radius: 100px;
+            font-weight: 600 !important;
+            transition: background 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--forest-mid) !important;
+            transform: translateY(-1px);
+        }
+
+        /* ── LANG TOGGLE ── */
+        .lang-toggle {
+            display: flex;
+            gap: 4px;
+            background: rgba(67,73,45,0.08);
+            border-radius: 20px;
+            padding: 4px;
+        }
+
+        .lang-btn {
+            border: none;
+            background: none;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-mid);
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active { background: var(--forest); color: var(--cream); }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 8% 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-ornament {
+            margin-bottom: 48px;
+            opacity: 0.9;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--forest-light);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.08;
+            color: var(--forest);
+            margin-bottom: 28px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--bark);
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-mid);
+            max-width: 520px;
+            margin-bottom: 56px;
+            font-weight: 300;
+            line-height: 1.75;
+        }
+
+        .hero-tagline {
+            font-size: 0.8rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 64px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-tagline::before,
+        .hero-tagline::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--rule);
+            display: block;
+        }
+
+        /* ── RULE DIVIDER ── */
+        .rule {
+            width: 48px;
+            height: 2px;
+            background: var(--forest-light);
+            margin: 0 auto 48px;
+            opacity: 0.4;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 120px 6%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-center { text-align: center; }
+
+        .section-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--forest-light);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--forest);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .section-sub {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            line-height: 1.75;
+            font-weight: 300;
+            max-width: 560px;
+        }
+
+        /* ── ABOUT ── */
+        .about {
+            background: var(--white);
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .about-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about-text .section-sub { max-width: 480px; }
+
+        .about-values {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--rule);
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .value-text h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 4px;
+        }
+
+        .value-text p {
+            font-size: 0.9rem;
+            color: var(--text-mid);
+            line-height: 1.65;
+        }
+
+        /* ── APPS ── */
+        .apps {
+            background: var(--cream-dark);
+        }
+
+        .apps-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .apps-header .section-sub { margin: 0 auto; }
+
+        .apps-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .app-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            border: 1px solid var(--rule);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(44,74,46,0.1);
+        }
+
+        .app-card.coming-soon {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .app-card-tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--forest-light);
+            margin-bottom: 24px;
+        }
+
+        .app-card.coming-soon .app-card-tag {
+            color: var(--text-light);
+        }
+
+        .app-card-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .app-card-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-card-logo.caresse-logo {
+            background: none;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .app-card-logo.placeholder {
+            background: var(--cream-dark);
+            border: 2px dashed var(--rule);
+        }
+
+        .app-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 12px;
+        }
+
+        .app-card p {
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: 32px;
+        }
+
+        .app-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .app-card-platforms {
+            display: flex;
+            gap: 8px;
+        }
+
+        .platform-pill {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            background: var(--cream);
+            border: 1px solid var(--rule);
+            border-radius: 100px;
+            padding: 4px 12px;
+        }
+
+        .app-card-arrow {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--forest);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .app-card:hover .app-card-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ── CARESSE FEATURE ── */
+        .caresse-feature {
+            background: var(--forest);
+            color: var(--cream);
+            overflow: hidden;
+        }
+
+        .caresse-feature-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .caresse-feature-text .section-eyebrow {
+            color: rgba(245,240,232,0.5);
+        }
+
+        .caresse-feature-text .section-title {
+            color: var(--cream);
+        }
+
+        .caresse-feature-text .section-sub {
+            color: rgba(245,240,232,0.7);
+        }
+
+        .caresse-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 32px;
+        }
+
+        .caresse-pill {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: rgba(245,240,232,0.75);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 100px;
+            padding: 6px 16px;
+        }
+
+        .caresse-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 36px;
+            background: var(--cream);
+            color: var(--forest);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            border-radius: 100px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .caresse-cta:hover {
+            background: var(--cream-dark);
+            transform: translateY(-2px);
+        }
+
+        .caresse-feature-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .caresse-phone-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* ── CAROUSEL ── */
+        .phone-carousel {
+            position: relative;
+            width: 260px;
+            height: 564px;
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .phone-carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .phone-carousel-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .phone-carousel-slide.active {
+            opacity: 1;
+        }
+
+        .phone-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .carousel-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(245,240,232,0.25);
+            transition: background 0.3s, transform 0.3s;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: rgba(245,240,232,0.85);
+            transform: scale(1.3);
+        }
+
+        /* ── CONTACT ── */
+        .contact {
+            background: var(--white);
+            border-top: 1px solid var(--rule);
+            text-align: center;
+        }
+
+        .contact .section-sub { margin: 0 auto 48px; }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--forest);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+            padding-bottom: 4px;
+        }
+
+        .contact-email:hover {
+            border-color: var(--forest-light);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--forest);
+            color: rgba(245,240,232,0.6);
+            padding: 60px 6% 48px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(245,240,232,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: rgba(245,240,232,0.9);
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: rgba(245,240,232,0.35);
+            letter-spacing: 0.06em;
+        }
+
+        /* ── HORIZONTAL RULE ── */
+        .footer-rule {
+            max-width: 1100px;
+            margin: 0 auto 32px;
+            height: 1px;
+            background: rgba(245,240,232,0.1);
+        }
+
+        /* ── SCROLL INDICATOR ── */
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.4;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-hint span {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-mid);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .about-inner,
+            .caresse-feature-inner {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .caresse-feature-visual {
+                order: -1;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav { display: none; }
+        }
+
+        @media (max-width: 640px) {
+            section { padding: 80px 5%; }
+            .hero { padding: 120px 6% 80px; }
+            .app-card { padding: 32px; }
+        }
+
+        /* ── HERO & FOOTER LOGO ── */
+        .hero-logo {
+            width: 480px;
+            height: auto;
+        }
+
+        .footer-logo-img {
+            height: 100px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            opacity: 0.72;
+        }
+
+        /* ── LANG SWITCHING ── */
+        [data-lang] { display: none; }
+        .lang-fr [data-lang="fr"] { display: block; }
+        .lang-en [data-lang="en"] { display: block; }
+        .lang-fr [data-lang="fr"].inline,
+        .lang-en [data-lang="en"].inline { display: inline; }
+        .lang-fr [data-lang="fr"].flex,
+        .lang-en [data-lang="en"].flex { display: flex; }
+        .lang-fr [data-lang="fr"].grid,
+        .lang-en [data-lang="en"].grid { display: grid; }
+    </style>
+</head>
+<body class="lang-fr">
+
+    <!-- HEADER -->
+    <header id="header">
+        <a href="#" class="header-logo" aria-label="Studio Mokuton">
+            <img src="studio_mokuton.png" alt="">
+        </a>
+        <div class="header-right">
+            <nav>
+                <a href="#about">Studio</a>
+                <a href="#apps">Apps</a>
+                <a href="#contact">Contact</a>
+                <a href="https://caresse.app/" target="_blank" rel="noopener" class="nav-cta">Caresse ↗</a>
+            </nav>
+            <div class="lang-toggle" role="group" aria-label="Choisir la langue">
+                <button class="lang-btn active" onclick="setLang('fr')" aria-label="Français">FR</button>
+                <button class="lang-btn" onclick="setLang('en')" aria-label="English">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-ornament">
+            <img src="studio_mokuton.png" alt="Studio Mokuton" class="hero-logo">
+        </div>
+
+        <p class="hero-eyebrow" data-lang="fr">Studio indépendant</p>
+        <p class="hero-eyebrow" data-lang="en">Independent App Studio</p>
+
+        <p class="hero-sub" data-lang="fr">
+            Un studio mobile indépendant qui construit des applications qui résolvent de vrais problèmes —
+            avec le soin et la patience de 18 ans de métier.
+        </p>
+        <p class="hero-sub" data-lang="en">
+            An independent mobile studio building apps that solve real problems —
+            with the craft and patience of 18 years in the field.
+        </p>
+
+        <a href="#apps" style="
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--forest);
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 15px 32px;
+            border-radius: 100px;
+            transition: background 0.2s, transform 0.2s;
+            letter-spacing: 0.02em;
+        " onmouseover="this.style.background='#5a6138';this.style.transform='translateY(-2px)'"
+           onmouseout="this.style.background='#43492d';this.style.transform='translateY(0)'">
+            <span data-lang="fr" class="inline">Nos apps</span>
+            <span data-lang="en" class="inline">Our apps</span>
+            <span style="font-size:0.8rem;">↓</span>
+        </a>
+
+        <div class="scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                <path d="M8 2v14M2 12l6 6 6-6" stroke="#8b7d54" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-inner">
+            <div class="about-text">
+                <p class="section-eyebrow" data-lang="fr">Qui sommes-nous</p>
+                <p class="section-eyebrow" data-lang="en">Who we are</p>
+
+                <h2 class="section-title" data-lang="fr">Des fondations<br>solides.</h2>
+                <h2 class="section-title" data-lang="en">Built on<br>solid ground.</h2>
+
+                <p class="section-sub" data-lang="fr">
+                    Studio Mokuton est un studio mobile indépendant fondé par une seule personne, avec 18 ans
+                    d'expérience en développement logiciel — des startups aux grands comptes. Nous construisons
+                    des applications qui résolvent de vrais problèmes, avec le soin et la patience que confère la durée.
+                </p>
+                <p class="section-sub" data-lang="en">
+                    Studio Mokuton is a one-person independent mobile studio with 18 years of software
+                    engineering experience — from startups to enterprise. We build apps that solve
+                    real problems, with the craft and patience that comes from doing this for a long time.
+                </p>
+                <p class="section-sub" style="margin-top:20px;" data-lang="fr">
+                    Chaque application est développée, publiée et distribuée entièrement en interne —
+                    de la première ligne de code à la fiche App Store.
+                    Pas de raccourcis. Pas de pression extérieure sur les délais.
+                </p>
+                <p class="section-sub" style="margin-top:20px;" data-lang="en">
+                    Every app is developed, published, and distributed entirely in-house —
+                    from the first line of code to the App Store listing.
+                    No shortcuts. No outside pressure on timelines.
+                </p>
+            </div>
+            <div class="about-values">
+                <div class="value-item">
+                    <div class="value-icon">🌱</div>
+                    <div class="value-text">
+                        <h4>
+                            <span data-lang="fr" class="inline">La profondeur avant le volume</span>
+                            <span data-lang="en" class="inline">Depth over volume</span>
+                        </h4>
+                        <p data-lang="fr">Une application bien construite vaut mieux que dix réalisées à la hâte. Nous prenons le temps nécessaire pour faire les choses correctement — et ne publions que lorsqu'elles le sont.</p>
+                        <p data-lang="en">One well-built app beats ten rushed ones. We take the time needed to get things right — and release only when they are.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🔒</div>
+                    <div class="value-text">
+                        <h4>
+                            <span data-lang="fr" class="inline">Vie privée par conception</span>
+                            <span data-lang="en" class="inline">Privacy by design</span>
+                        </h4>
+                        <p data-lang="fr">Sur des sujets sensibles en particulier, la confiance de l'utilisateur n'est pas négociable. Nos applications ne collectent que ce qui est nécessaire, et rien de plus.</p>
+                        <p data-lang="en">Especially for sensitive subjects, user trust is non-negotiable. Our apps collect only what's necessary, and nothing more.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤖</div>
+                    <div class="value-text">
+                        <h4>
+                            <span data-lang="fr" class="inline">L'IA comme outil créatif</span>
+                            <span data-lang="en" class="inline">AI as a creative tool</span>
+                        </h4>
+                        <p data-lang="fr">Nous utilisons l'IA pour générer des expériences qu'il serait impossible de créer manuellement à grande échelle — uniques, personnelles, et jamais répétées.</p>
+                        <p data-lang="en">We use AI to generate experiences that would be impossible to create manually at scale — unique, personal, and never repeated.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🌍</div>
+                    <div class="value-text">
+                        <h4>
+                            <span data-lang="fr" class="inline">L'inclusivité dès le départ</span>
+                            <span data-lang="en" class="inline">Inclusive from the ground up</span>
+                        </h4>
+                        <p data-lang="fr">Nos applications sont conçues pour de vraies personnes dans toute leur diversité — toutes les identités de genre et toutes les dynamiques relationnelles. Toujours.</p>
+                        <p data-lang="en">Our apps are built for real people in all their diversity — all genders, identities, and relationship dynamics. Always.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPS GRID -->
+    <section class="apps" id="apps">
+        <div class="apps-header">
+            <p class="section-eyebrow" data-lang="fr">Notre portfolio</p>
+            <p class="section-eyebrow" data-lang="en">Our portfolio</p>
+
+            <h2 class="section-title" data-lang="fr">Des apps conçues pour durer.</h2>
+            <h2 class="section-title" data-lang="en">Apps built to endure.</h2>
+
+            <p class="section-sub" data-lang="fr">Chaque publication est délibérée. Nous publions quand c'est solide — pas quand c'est imminent.</p>
+            <p class="section-sub" data-lang="en">Each release is deliberate. We ship when it's solid — not when it's soon.</p>
+        </div>
+
+        <div class="apps-grid">
+
+            <!-- CARESSE -->
+            <a href="https://caresse.app/" target="_blank" rel="noopener" class="app-card">
+                <p class="app-card-tag" data-lang="fr">✦ Disponible sur Google Play · iOS bientôt</p>
+                <p class="app-card-tag" data-lang="en">✦ Live on Google Play · iOS coming soon</p>
+                <div class="app-card-logo caresse-logo">
+                    <img src="caresse-icon.png" alt="Caresse app icon">
+                </div>
+                <h3>Caresse</h3>
+                <p data-lang="fr">Une expérience audio immersive et privée pour l'intimité — sans contenu visuel explicite. Chaque session est générée de manière unique par l'IA, entièrement personnalisée, conçue pour l'exploration solo ou en couple. Une alternative intentionnelle à la consommation passive.</p>
+                <p data-lang="en">A private, immersive audio experience for intimacy — without explicit visual content. Each session is uniquely generated by AI, fully personalized, and designed for solo exploration or couples. An intentional alternative to passive consumption.</p>
+                <div class="app-card-footer">
+                    <div class="app-card-platforms">
+                        <span class="platform-pill">iOS</span>
+                        <span class="platform-pill">Android</span>
+                        <span class="platform-pill">18+</span>
+                    </div>
+                    <div class="app-card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- NEXT APP PLACEHOLDER -->
+            <div class="app-card coming-soon">
+                <p class="app-card-tag">Coming soon</p>
+                <div class="app-card-logo placeholder">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                        <circle cx="14" cy="14" r="11" stroke="#a89870" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        <path d="M14 9v5M14 14l3 3" stroke="#a89870" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 data-lang="fr">Prochaine app</h3>
+                <h3 data-lang="en">Next app</h3>
+                <p data-lang="fr">La prochaine application Studio Mokuton est en développement. Pas de date de sortie tant qu'elle n'est pas prête. C'est précisément le principe.</p>
+                <p data-lang="en">The next Studio Mokuton app is in development. No launch date until it's ready. That's the point.</p>
+                <div class="app-card-footer">
+                    <div class="app-card-platforms">
+                        <span class="platform-pill">TBA</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CARESSE FEATURE SECTION -->
+    <section class="caresse-feature">
+        <div class="caresse-feature-inner">
+            <div class="caresse-feature-text">
+                <p class="section-eyebrow" data-lang="fr">Application phare</p>
+                <p class="section-eyebrow" data-lang="en">Featured app</p>
+
+                <h2 class="section-title" data-lang="fr">Caresse —<br>L'intimité par le son.</h2>
+                <h2 class="section-title" data-lang="en">Caresse —<br>Intimacy through sound.</h2>
+
+                <p class="section-sub" data-lang="fr">
+                    Caresse est une expérience audio guidée conçue pour éveiller l'intimité — sans visuels explicites,
+                    sans défilement passif. Seulement votre imagination, une voix, et une session générée uniquement
+                    pour vous à chaque fois.
+                </p>
+                <p class="section-sub" data-lang="en">
+                    Caresse is a guided audio experience designed to awaken intimacy — no explicit visuals,
+                    no passive scrolling. Just your imagination, a voice, and a session generated uniquely
+                    for you each time.
+                </p>
+                <p class="section-sub" style="margin-top: 16px;" data-lang="fr">
+                    Là où les alternatives existantes sont coûteuses, limitées ou construites autour du contenu visuel,
+                    Caresse propose quelque chose de différent : une expérience audio entièrement personnalisée, privée,
+                    disponible en français, anglais et espagnol — gratuite pour commencer.
+                </p>
+                <p class="section-sub" style="margin-top: 16px;" data-lang="en">
+                    Where existing alternatives are expensive, limited, or built around visual content,
+                    Caresse offers something different: a fully personalized, private, audio-first experience
+                    available in French, English, and Spanish — free to start.
+                </p>
+                <div class="caresse-pills">
+                    <span class="caresse-pill" data-lang="fr">Générée uniquement à chaque session</span>
+                    <span class="caresse-pill" data-lang="en">Uniquely generated each session</span>
+                    <span class="caresse-pill" data-lang="fr">Modes solo & couple</span>
+                    <span class="caresse-pill" data-lang="en">Solo & couple modes</span>
+                    <span class="caresse-pill" data-lang="fr">Guidé par la voix, sans visuels</span>
+                    <span class="caresse-pill" data-lang="en">Voice-guided, no visuals</span>
+                    <span class="caresse-pill" data-lang="fr">Consentement intégré</span>
+                    <span class="caresse-pill" data-lang="en">Consent-aware</span>
+                    <span class="caresse-pill" data-lang="fr">Toutes les identités bienvenues</span>
+                    <span class="caresse-pill" data-lang="en">All identities welcome</span>
+                    <span class="caresse-pill">FR · EN · ES</span>
+                    <span class="caresse-pill" data-lang="fr">Gratuit pour commencer</span>
+                    <span class="caresse-pill" data-lang="en">Free to start</span>
+                </div>
+                <a href="https://caresse.app/" target="_blank" rel="noopener" class="caresse-cta">
+                    <span data-lang="fr" class="inline">Visiter caresse.app</span>
+                    <span data-lang="en" class="inline">Visit caresse.app</span>
+                    <span>↗</span>
+                </a>
+            </div>
+            <div class="caresse-feature-visual">
+                <div class="caresse-phone-wrap">
+                    <div class="phone-carousel" id="phoneCarousel">
+                        <div class="phone-carousel-track" id="carouselTrack">
+                            <div class="phone-carousel-slide active"><img src="screen-fr-01.png" alt="Caresse — écran d'accueil" data-src-fr="screen-fr-01.png" data-src-en="screen-01.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-02.png" alt="Caresse — configuration de session" loading="lazy" data-src-fr="screen-fr-02.png" data-src-en="screen-02.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-03.png" alt="Caresse — personnalisation du profil" loading="lazy" data-src-fr="screen-fr-03.png" data-src-en="screen-03.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-04.png" alt="Caresse — choix du mode" loading="lazy" data-src-fr="screen-fr-04.png" data-src-en="screen-04.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-05.png" alt="Caresse — participants" loading="lazy" data-src-fr="screen-fr-05.png" data-src-en="screen-05.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-06.png" alt="Caresse — préférences" loading="lazy" data-src-fr="screen-fr-06.png" data-src-en="screen-06.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-07.png" alt="Caresse — envies et configuration" loading="lazy" data-src-fr="screen-fr-07.png" data-src-en="screen-07.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-08.png" alt="Caresse — intensité et ambiance" loading="lazy" data-src-fr="screen-fr-08.png" data-src-en="screen-08.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-09.png" alt="Caresse — expérience prête" loading="lazy" data-src-fr="screen-fr-09.png" data-src-en="screen-09.png"></div>
+                            <div class="phone-carousel-slide"><img src="screen-fr-10.png" alt="Caresse — session audio" loading="lazy" data-src-fr="screen-fr-10.png" data-src-en="screen-10.png"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <p class="section-eyebrow" data-lang="fr">Nous contacter</p>
+        <p class="section-eyebrow" data-lang="en">Get in touch</p>
+
+        <h2 class="section-title" data-lang="fr">Les demandes sérieuses<br>reçoivent des réponses sérieuses.</h2>
+        <h2 class="section-title" data-lang="en">Serious inquiries<br>get serious replies.</h2>
+
+        <p class="section-sub" data-lang="fr">
+            Presse, partenariats, ou tout autre sujet qui mérite d'être abordé —
+            nous lisons chaque message et répondons à ceux qui comptent.
+        </p>
+        <p class="section-sub" data-lang="en">
+            Press, partnerships, or anything else worth saying —
+            we read every message and respond to the ones that matter.
+        </p>
+        <a href="mailto:contact@mokuto.studio" class="contact-email">
+            <span>✉</span>
+            contact@mokuto.studio
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-rule"></div>
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <img src="studio_mokuton.png" alt="" class="footer-logo-img">
+            </div>
+            <div class="footer-links">
+                <a href="https://caresse.app/" target="_blank" rel="noopener">Caresse</a>
+                <a href="https://caresse.app/legal/en/privacy.html" target="_blank" rel="noopener noreferrer nofollow">Privacy</a>
+                <a href="https://caresse.app/legal/en/legals.html" target="_blank" rel="noopener noreferrer nofollow">Legal</a>
+                <a href="mailto:contact@mokuto.studio">Contact</a>
+            </div>
+            <p class="footer-copy">© 2026 Studio Mokuton</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            document.body.className = 'lang-' + lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+            });
+            document.documentElement.lang = lang;
+            document.querySelector('meta[name="description"]').setAttribute('content',
+                lang === 'fr'
+                    ? 'Studio Mokuton est un studio mobile indépendant qui conçoit des applications iOS et Android pour durer. Éditeur de Caresse, l\'application audio intime guidée par l\'IA.'
+                    : 'Studio Mokuton is an independent mobile app studio building iOS and Android apps built to last. Publisher of Caresse, the AI-guided intimate audio app.'
+            );
+            document.title = lang === 'fr'
+                ? 'Studio Mokuton — Studio d\'applications mobiles indépendant'
+                : 'Studio Mokuton — Independent Mobile App Studio';
+            // Swap carousel screens
+            document.querySelectorAll('#carouselTrack img[data-src-fr]').forEach(img => {
+                img.src = lang === 'fr' ? img.dataset.srcFr : img.dataset.srcEn;
+            });
+        }
+
+        const userLang = navigator.language?.startsWith('fr') ? 'fr' : 'en';
+        setLang(userLang);
+
+        // Sticky header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 40);
+        }, { passive: true });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.app-card, .value-item, .about-text, .about-values').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(24px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Carousel
+        const slides = document.querySelectorAll('.phone-carousel-slide');
+        const dotsContainer = document.getElementById('carouselDots');
+        const carousel = document.getElementById('phoneCarousel');
+        let current = 0;
+        let timer;
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Screen ' + (i + 1));
+            dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+            dotsContainer.appendChild(dot);
+        });
+
+        carousel.addEventListener('click', () => { next(); resetTimer(); });
+
+        function goTo(index) {
+            slides[current].classList.remove('active');
+            dotsContainer.children[current].classList.remove('active');
+            current = index;
+            slides[current].classList.add('active');
+            dotsContainer.children[current].classList.add('active');
+        }
+
+        function next() { goTo((current + 1) % slides.length); }
+
+        function resetTimer() {
+            clearInterval(timer);
+            timer = setInterval(next, 3000);
+        }
+
+        resetTimer();
+    </script>
+</body>
+</html>

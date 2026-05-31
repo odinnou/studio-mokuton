@@ -286,4 +286,80 @@
 
 ---
 
+## Tuto — Importer un article Markdown sur Medium
+
+Medium n'accepte pas le Markdown brut. Trois méthodes possibles, par ordre de qualité du rendu.
+
+### Méthode 1 — Import par URL (recommandée) ⭐
+
+Préserve le mieux le formatage (titres, listes, code blocks, liens).
+
+**Étapes** :
+1. Publier l'article en HTML public quelque part. Le plus simple : **[hackmd.io](https://hackmd.io)** (gratuit, rend le Markdown en HTML propre).
+   - Créer un compte → nouvelle note → coller le Markdown (sans le frontmatter YAML).
+   - Cliquer **Publish** en haut à droite → récupérer l'URL publique.
+2. Sur Medium : photo de profil → **Stories** → **Import a story**.
+3. Coller l'URL → Medium scrape le HTML et crée un draft.
+4. Supprimer la note HackMD une fois l'import vérifié.
+
+**Conservé** : titres, paragraphes, listes, code blocks (avec coloration), images, liens.
+**Perdu** : frontmatter YAML, `<!--more-->`, éléments custom.
+
+### Méthode 2 — Copier-coller depuis le rendu Markdown
+
+Plus rapide, mais retouches manuelles nécessaires.
+
+1. Ouvrir le `.md` dans **VS Code preview**, **Typora**, **Obsidian**, ou **github.com**.
+2. Sélectionner tout le rendu → copier → coller dans Medium (Write a story).
+3. Recréer chaque code block manuellement avec `⌘+Option+6` (Mac) ou `Ctrl+Alt+6` (Win) puis coller le code dedans.
+4. Refaire les tables à la main si présentes.
+
+### Méthode 3 — API Medium (automatisation)
+
+Pour publier en masse via script :
+
+```bash
+npx markdown-to-medium ton-article.md --token=YOUR_MEDIUM_TOKEN
+```
+
+⚠️ L'API Medium est en mode "maintenance" depuis 2023 — fonctionne mais aucune nouvelle feature.
+
+---
+
+### Workflow recommandé pour la série Building Caresse
+
+#### À l'import (depuis HackMD)
+
+1. Titre Medium : copier depuis le frontmatter `title:`.
+2. Sous-titre Medium : copier depuis `subtitle:`.
+3. Tags (5 max) : `dotnet`, `hexagonal-architecture`, `software-architecture`, `ai`, `building-caresse`.
+4. Image de couverture : upload la cover 1500×750 px.
+5. **Stats → Member-only story** : cocher ✅ (indispensable pour le Partner Program).
+
+#### Avant publication
+
+- [ ] Vérifier les code blocks (Medium les casse parfois à l'import)
+- [ ] Vérifier que les liens `caresse.app` et Play Store sont cliquables
+- [ ] Member-only activé
+- [ ] Générer un **Friend Link** (pour partage externe → gens non-membres peuvent lire et potentiellement s'abonner)
+- [ ] Si soumission à une publication (Better Programming, ITNEXT…) : soumettre **avant** publication, pas après
+
+#### Après publication
+
+- 📣 Partager le Friend Link sur Reddit (r/dotnet, r/csharp), HN, LinkedIn, Twitter/X
+- 📣 Répondre à tous les commentaires dans les 24h → l'algo Medium boost les articles à fort engagement
+- 📊 Vérifier les stats à J+7 → si "boost" Medium apparaît, multiplicateur ×5 à ×20 sur les vues
+
+---
+
+### Pièges connus à l'import
+
+1. **Code blocks** : vérifier chacun manuellement même via HackMD. Medium a un mode "code gist multi-ligne" qu'il faut parfois réappliquer.
+2. **Images** : upload-les directement sur Medium plutôt que via URL externe (Medium re-héberge de toute façon).
+3. **Liens externes** : Medium les rend `no-follow` → pas de juice SEO direct pour caresse.app, mais le clic compte quand même pour le trafic.
+4. **`<!--more-->`** : ignoré par Medium. Le paywall est placé automatiquement après les 3-4 premiers paragraphes pour les member-only stories.
+5. **Frontmatter YAML** : à supprimer manuellement avant import.
+
+---
+
 *Généré le 2026-05-31 à partir de l'analyse des repos caresse-app, caresse-api et assets.*

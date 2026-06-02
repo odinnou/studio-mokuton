@@ -7,7 +7,7 @@ series_index: 1
 reading_time: "9 min"
 language: en
 medium:
-  member_only: true
+  member_only: false  # PUBLIC — premier article de la série, sert de funnel SEO + followers vers les #2+ premium
   publication_target: "Better Programming"
 canonical: https://caresse.app
 ---

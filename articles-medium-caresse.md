@@ -286,6 +286,42 @@
 
 ---
 
+## Stratégie public vs premium (member-only)
+
+**Règle** : 1 article public tous les 3-4 articles dans la série, le reste en premium.
+
+| | Public (free) | Member-only (premium) |
+|---|---|---|
+| Revenu direct | $0 | ~$0.01–0.05 / min lue par membre |
+| Audience | Tout internet + Google + Reddit + HN | Membres Medium uniquement |
+| SEO Google | ✅ indexation complète | ❌ partielle |
+| Partage Reddit / HN | Illimité | 1 friend link only |
+| Conversion vers caresse.app | Audience large = + clics absolus | Audience qualifiée mais petite |
+| Followers Medium gagnés | **Élevé** (non-membres peuvent follow) | Modéré |
+| Commission referral Medium | ✅ levier actif | ❌ levier mort |
+
+### Plan de publication recommandé
+
+```
+#1 Hexagonal              → PUBLIC   → SEO + Reddit/HN + funnel followers + clics caresse.app
+#2 Multi-stage pipeline   → PREMIUM  → revenu sur audience acquise par #1
+#3 Testing .NET           → PREMIUM
+#4 Multi-LLM              → PUBLIC   → nouveau coup de boost SEO/funnel
+#5 JSONB EF Core          → PREMIUM
+#6 KMP in production      → PUBLIC   → audience large, sujet partageable
+#7 RevenueCat KMP         → PREMIUM
+...
+```
+
+### Pourquoi le #1 d'une nouvelle série doit être public
+
+1. **Pas encore d'audience sur ce thème** — les followers de "the right way" sont .NET pur, Building Caresse est un nouveau territoire. Il faut prouver la valeur avant de paywaller.
+2. **Funnel vers les #2+ premium** — un lecteur gratuit qui aime le #1 te follow, reçoit la notif du #2 (premium), et peut s'abonner à Medium pour le lire (→ commission referral à vie).
+3. **Boost Medium plus probable** — l'algo diffuse plus volontiers les articles publics, le boost retombe ensuite sur tes premium via tes nouveaux followers.
+4. **Partageable sans friction** — pas de paywall qui fait fermer l'onglet sur Reddit / HN.
+
+---
+
 ## Tuto — Importer un article Markdown sur Medium
 
 Medium n'accepte pas le Markdown brut. Trois méthodes possibles, par ordre de qualité du rendu.
@@ -334,7 +370,9 @@ npx markdown-to-medium ton-article.md --token=YOUR_MEDIUM_TOKEN
 2. Sous-titre Medium : copier depuis `subtitle:`.
 3. Tags (5 max) : `dotnet`, `hexagonal-architecture`, `software-architecture`, `ai`, `building-caresse`.
 4. Image de couverture : upload la cover 1500×750 px.
-5. **Stats → Member-only story** : cocher ✅ (indispensable pour le Partner Program).
+5. **Member-only story** : selon le plan ci-dessus (#1 public, #2+ premium par défaut).
+   - Public → laisser décoché (maximise SEO + funnel followers)
+   - Premium → cocher ✅ (revenu Partner Program)
 
 #### Avant publication
 
